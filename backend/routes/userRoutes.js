@@ -1,0 +1,10 @@
+const express=require('express')
+const { Register, getUsers, Login } = require('../controllers/userControllers')
+const { isAuth } = require('../middleWares/isAuth')
+const { registerValidator, validation, loginValidator } = require('../middleWares/validation')
+const routerUser=express.Router()
+routerUser.get('/getusers',getUsers)
+routerUser.post('/register',registerValidator,validation,Register)
+routerUser.post('/login',loginValidator,validation,Login)
+routerUser.get('/current',isAuth,(req,res)=>res.send({user:req.user}))
+module.exports=routerUser

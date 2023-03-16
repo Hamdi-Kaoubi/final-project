@@ -1,0 +1,40 @@
+.slider-container img{
+    height: 370px;
+    width: 320px;
+    border-radius: 10px;
+}
+.text-container {
+    position: absolute;
+    height: 350px;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+    transition: opacity 0.4s ease-in-out;
+    background: transparent;
+    cursor: pointer;
+}
+.text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-family: Montserrat, sans-serif;
+    -webkit-text-fill-color: white;
+    -webkit-text-stroke:2px black;
+    text-align: center;
+}
+.slider-container:hover .text-container{
+    opacity: 0.8;
+}
+.title {
+    display: block;
+    width: 100%;
+    height: 100px;
+    background-color: #dae091;
+    gap: 20px;
+    box-shadow: 0 10px 20px rgb(40, 40, 40);
+    gap: 20px;
+}
