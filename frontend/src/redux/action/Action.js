@@ -1,4 +1,4 @@
-import { GET_FASHION, GET_GRAPHIC, GET_HAND, GET_LANGUAGES, GET_SPORT, GET_VIDEO } from '../actionTypes/ActionTypes'
+import { GET_FASHION, GET_GRAPHIC, GET_HAND, GET_LANGUAGES, GET_ONELANGUAGE, GET_SPORT, GET_VIDEO } from '../actionTypes/ActionTypes'
 import axios from 'axios'
 export const get_languages=()=>async(dispatch)=>{
     try {
@@ -8,6 +8,15 @@ export const get_languages=()=>async(dispatch)=>{
         console.log(error)
     }
 }
+export const get_oneLanguage=(id)=>async(dispatch)=>{
+    try {
+        const res=await axios.get('/getonelanguage/'+id)
+        dispatch({type:GET_ONELANGUAGE,payload:res.data})
+    } catch (error) {
+        console.log(error)
+    }
+}
+
 export const get_hand=()=>async(dispatch)=>{
     try {
         const res=await axios.get('/gethandmade')

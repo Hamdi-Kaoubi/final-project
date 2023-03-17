@@ -46,7 +46,7 @@ const Languages = () => {
             
             <img src={el.image} alt='#'/>
             <div className='text-container'>
-            <Link to='/videos'><h2 className='text'>{el.title}</h2></Link>
+            <Link to={`/videos/${el._id}`}><h2 className='text'>{el.title}</h2></Link>
               
             </div>
           </div>

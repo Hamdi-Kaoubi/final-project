@@ -36,3 +36,12 @@ exports.deleteLanguage=async(req,res)=>{
         return res.status(500).send(error)
     }
 }
+
+exports.getOneLanguage=async(req,res)=>{
+    try {
+        const programming=await programmingModel.findById(req.params.id)
+        return res.status(200).send({msg:'your one languege is here',programming})
+    } catch (error) {
+        return res.status(500).send(error)
+    }
+}

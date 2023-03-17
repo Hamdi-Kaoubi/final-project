@@ -1,31 +1,32 @@
-import axios from 'axios'
-import React, { useEffect, useState } from 'react'
-import Spinner from 'react-bootstrap/Spinner';
-//import './Test.css'
+import React, { useEffect} from 'react'
+import { useDispatch, useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
+import { get_oneLanguage } from '../../../redux/action/Action';
+import './Test.css'
 const Test = () => {
-  const [data,setData]=useState([])
-  const [loaded,setLoaded] = useState(true)
-  useEffect(() => {
-    axios.get('/getlanguage').then((res)=>setData(res.data))
-    .then(()=>setLoaded(false))
-  }, [])
+  const {id}=useParams()
+  const dispatch=useDispatch()
+    useEffect(() => {
+      dispatch(get_oneLanguage(id))
+    }, [dispatch])
+    const programming=useSelector((state)=>state.OneLanguageReducer.programming)
+    console.log(id)
   return (
-    <div className='videos-container'>
-      {loaded==true?<div><Spinner className='spn' animation="border" role="status">
-      </Spinner></div>:data.map((el)=>el.content.map((elm)=>
-        <div className="video-card">
+    <div className='card-container'>
+      {programming?.content?.map((el)=>
+        <div className="card-content">
         <header>
-          <img src={elm.imgUrl} alt=''/>
-          <h1>{elm.vidTitle}</h1>
-          <h2>{elm.creator}</h2>
+          <img src={el.imgUrl} alt=''/>
+          <h1 className='card-text'>{el.vidTitle}</h1>
+          <h2 className='card-text'>{el.creator}</h2>
         </header>
-        <div className="video-bio">
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque quis ligula vitae lorem tempus maximus.</p>
+        <div className="card-bio">
+          <p style={{color:'black'}}>{el.date}</p>
           <button>Wishlist</button>
-          <button className="cart">Add to cart</button>
+          <button className="card-btn">Add to cart</button>
         </div>
       </div>
-      ))}
+      )}
     </div>
   )
 }
