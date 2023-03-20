@@ -20,7 +20,7 @@ const SignUp = () => {
       <div className="title">Tips and Tricks</div>
       <div className="contain">
         <div className="sign-parent">
-        <div className="sign-in"><a><span className="active">Sign up</span></a></div>
+        <div className="sign-in"><span className="active">Sign up</span></div>
         </div>
         <div className="forms">
             <p className="user-tag tag">First name</p>
