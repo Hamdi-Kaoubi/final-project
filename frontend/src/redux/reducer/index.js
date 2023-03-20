@@ -6,6 +6,7 @@ import GraphicReducer from "./GraphicReducer";
 import VideoReducer from "./VideoReducer";
 import SportReducer from "./SportReducer";
 import FashionReducer from "./FashionReducer";
+import UserReducer from "./UserReducer";
 const rootreducer=combineReducers({
     ProgramReducer,
     OneLanguageReducer,
@@ -13,6 +14,7 @@ const rootreducer=combineReducers({
     GraphicReducer,
     VideoReducer,
     SportReducer,
-    FashionReducer
+    FashionReducer,
+    UserReducer
 })
 export default rootreducer

@@ -7,7 +7,7 @@ const Navigation = () => {
     <nav className="nav">
     <div className="container">
       <div className="logo">
-        <a href="#">T & T</a>
+        <a href="/">T & T</a>
       </div>
       <div id="mainListDiv" className="main_list">
         <ul className="navlinks">

@@ -1,5 +1,5 @@
 const express=require('express')
-const { getLanguage, addLanguage, editLanguage, deleteLanguage, getOneLanguage } = require('../controllers/programmingControllers')
+const { getLanguage, addLanguage, editLanguage, deleteLanguage, getOneLanguage, getVideoUrl } = require('../controllers/programmingControllers')
 const routerProg=express.Router()
 routerProg.get('/getlanguage',getLanguage)
 routerProg.get('/getonelanguage/:id',getOneLanguage)

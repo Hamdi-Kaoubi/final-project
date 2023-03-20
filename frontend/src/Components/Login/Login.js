@@ -2,6 +2,7 @@ import React from 'react'
 import './Login.css'
 const Login = () => {
   return (
+    <div className='login-body'>
     <div className="parent">
     <div className="login-modal">
       <div className="title">Tips and Tricks</div>
@@ -25,6 +26,7 @@ const Login = () => {
         </div>
       </div>
     </div>
+  </div>
   </div>
   )
 }
