@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { get_oneLanguage } from '../../../redux/action/Action';
 import './Test.css'
 const Test = () => {
@@ -22,7 +22,7 @@ const Test = () => {
         </header>
         <div className="card-bio">
           <p style={{color:'black'}}>{el.date}</p>
-          <Link to='/video'><button>Watch Trick</button></Link>
+         <a  href={el.vidUrl}  target="_blank" rel='noreferrer'><button>Watch Trick</button></a>
           <button className="card-btn">Add to favourites</button>
         </div>
       </div>

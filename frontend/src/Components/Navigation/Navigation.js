@@ -15,6 +15,7 @@ const Navigation = () => {
           <li><a href="#">Categories</a></li>
           <li><a href="#">Users Uploads</a></li>
           <li><a href="#">Favourites</a></li>
+          <li><a href="/profile"><i class="fa-duotone fa-user"></i></a></li>
           <li><Link to='/login'>Login</Link></li>
           
         </ul>

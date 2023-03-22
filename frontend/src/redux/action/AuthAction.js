@@ -1,13 +1,16 @@
 import axios from 'axios'
 import { GET_CURRENT, LOGIN, REGISTER } from '../actionTypes/AuthTypes'
+import { alert_error } from './ErrorAction'
 
 export const register=(data,navigate)=>async(dispatch)=>{
     try {
         const res=await axios.post('/register',data)
         dispatch({type:REGISTER,payload:res.data})
-        navigate('/')
+        navigate('/profile')
     } catch (error) {
-        console.log(error)
+        error.response.data.errors.forEach(element=>{
+            dispatch(alert_error(element.msg))
+        })
     }
 }
 
@@ -15,9 +18,11 @@ export const login=(data,navigate)=>async(dispatch)=>{
     try {
         const res=await axios.post('/login',data)
         dispatch({type:LOGIN,payload:res.data})
-        navigate('/')
+        navigate('/profile')
     } catch (error) {
-        console.log(error)
+        error.response.data.errors.forEach(element=>{
+            dispatch(alert_error(element.msg))
+        })
     }
 }
 
