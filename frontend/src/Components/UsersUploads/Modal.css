@@ -42,10 +42,15 @@
 .modalContainer .modalBody {
     flex: 50%;
     display: flex;
+    flex-direction: column;
+    gap: 5px;
     justify-content: center;
     align-items: center;
-    font-size: 1.7rem;
+    font-size: 1rem;
     text-align: center;
+}
+.modalBody input {
+    opacity: 50%;
 }
 .modalContainer .modalFooter {
     flex: 20%;

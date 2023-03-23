@@ -4,14 +4,15 @@ const initialState = {
     uploads:[]
 }
 
-const UploadsReducer= (state = initialState, { type, payload }) => {
+const UploadReducer= (state = initialState, { type, payload }) => {
 switch (type) {
 
 case GET_UPLOADS:
     return { ...state,uploads:payload.upload }
 case POST_UPLOADS:
+    return {...state,uploads:payload.upload}
 default:
     return state
 }
 }
-export default UploadsReducer
+export default UploadReducer

@@ -11,7 +11,8 @@ const Modal = ({closeModal}) => {
                 <h2>Surprise us</h2>
             </div>
             <div className='modalBody'>
-                
+                <input type='text' placeholder='put your title here'/>
+                <input type='text' placeholder='the domain of your video'/>
             </div>
             <div className='modalFooter'>
                 <button>Upload</button>

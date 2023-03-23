@@ -8,7 +8,7 @@ import SportReducer from "./SportReducer";
 import FashionReducer from "./FashionReducer";
 import UserReducer from "./UserReducer";
 import ErrorReducer from "./ErrorReducer";
-import UploadsReducer from "./UploadReducer";
+import UploadReducer from "./UploadReducer";
 const rootreducer=combineReducers({
     ProgramReducer,
     OneLanguageReducer,
@@ -19,6 +19,6 @@ const rootreducer=combineReducers({
     FashionReducer,
     UserReducer,
     ErrorReducer,
-    UploadsReducer
+    UploadReducer
 })
 export default rootreducer
