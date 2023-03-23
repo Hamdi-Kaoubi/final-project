@@ -5,7 +5,7 @@ const PrivateRoute = ({children}) => {
     const token=localStorage.getItem('token')
   return (
     <div>
-        {token?children:<Navigate to='/register'/>}
+        {token?children:<Navigate to='/'/>}
     </div>
   )
 }

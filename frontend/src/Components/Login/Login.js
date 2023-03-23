@@ -19,7 +19,7 @@ const Login = () => {
       <div className="containers">
         <div className="sign-parent">
           <div className="sign-in"><span className="active">Login</span></div>
-          <div className="sign-up"><a href='/login/signup'><span className="not-active">Sign Up</span></a></div>
+          <div className="sign-up"><a href='/signup'><span className="not-active">Sign Up</span></a></div>
         </div>
         {/*sign-parent*/}
         <div className="forms">

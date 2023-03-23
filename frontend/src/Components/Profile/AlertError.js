@@ -1,10 +1,10 @@
 import React from 'react'
-import {useSelector} from 'react-redux'
+import { useSelector } from 'react-redux'
 const AlertError = () => {
     const error=useSelector((state)=>state.ErrorReducer)
   return (
     <div>
-        {error.map((el)=>alert(el.msg))}
+    {error.map((el)=>alert(el.msg))}
     </div>
   )
 }

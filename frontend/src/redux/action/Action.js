@@ -1,4 +1,4 @@
-import { GET_FASHION, GET_GRAPHIC, GET_HAND, GET_LANGUAGES, GET_ONELANGUAGE, GET_SPORT, GET_VIDEO } from '../actionTypes/ActionTypes'
+import { GET_FASHION, GET_GRAPHIC, GET_HAND, GET_LANGUAGES, GET_ONELANGUAGE, GET_SPORT, GET_UPLOADS, GET_VIDEO } from '../actionTypes/ActionTypes'
 import axios from 'axios'
 export const get_languages=()=>async(dispatch)=>{
     try {
@@ -55,5 +55,21 @@ export const get_fashion=()=>async(dispatch)=>{
         dispatch({type:GET_FASHION,payload:res.data})
     } catch (error) {
         console.log(error)
+    }
+}
+export const get_uploads=()=>async(dispatch)=>{
+    try {
+        const res=await axios.get('/getupload')
+        dispatch({type:GET_UPLOADS,payload:res.data})
+    } catch (error) {
+        console.log(error)
+    }
+}
+export const post_uploads=(data)=>async(dispatch)=>{
+    try {
+        await axios.post('/addaupload',data)
+        dispatch(get_uploads())
+    } catch (error) {
+        
     }
 }

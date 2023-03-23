@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { GET_CURRENT, LOGIN, REGISTER } from '../actionTypes/AuthTypes'
+import { GET_CURRENT, LOGIN, LOGOUT, REGISTER } from '../actionTypes/AuthTypes'
 import { alert_error } from './ErrorAction'
 
 export const register=(data,navigate)=>async(dispatch)=>{
@@ -8,9 +8,9 @@ export const register=(data,navigate)=>async(dispatch)=>{
         dispatch({type:REGISTER,payload:res.data})
         navigate('/profile')
     } catch (error) {
-        error.response.data.errors.forEach(element=>{
+        error.response.data.errors.forEach(element => {
             dispatch(alert_error(element.msg))
-        })
+        });
     }
 }
 
@@ -20,9 +20,9 @@ export const login=(data,navigate)=>async(dispatch)=>{
         dispatch({type:LOGIN,payload:res.data})
         navigate('/profile')
     } catch (error) {
-        error.response.data.errors.forEach(element=>{
+        error.response.data.errors.forEach(element => {
             dispatch(alert_error(element.msg))
-        })
+        });
     }
 }
 
@@ -36,4 +36,8 @@ export const get_current=()=>async(dispatch)=>{
     } catch (error) {
         console.log(error)
     }
+}
+
+export const logout=()=>{
+    return ({type:LOGOUT})
 }

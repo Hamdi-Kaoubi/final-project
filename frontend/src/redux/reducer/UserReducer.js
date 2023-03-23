@@ -1,4 +1,4 @@
-import { GET_CURRENT, LOGIN, REGISTER } from "../actionTypes/AuthTypes";
+import { GET_CURRENT, LOGIN, LOGOUT, REGISTER } from "../actionTypes/AuthTypes";
 
 const initialState = {
     user:{}
@@ -12,6 +12,9 @@ switch (type) {
         return {...state,user:payload.user}
     case GET_CURRENT:
         return {...state,user:payload}
+    case LOGOUT:
+        localStorage.removeItem('token')
+        return {...state,user:null}
     default:
         return state
 } 
