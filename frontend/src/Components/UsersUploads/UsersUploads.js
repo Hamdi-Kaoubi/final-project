@@ -28,7 +28,7 @@ const UsersUploads = () => {
         <div className='uploads-container'>
         {uploads.map((el)=>
           <Card style={{ width: '18rem', boxShadow:'0 10px 20px rgb(40, 40, 40)',cursor:'pointer'}}>
-      <Card.Img variant="top" src={el.thumbNailImage} />
+          <a  href={el.video}  target="_blank" rel='noreferrer'><Card.Img variant="top" src={el.thumbNailImage} /></a>
       <Card.Body>
         <Card.Title>{el.title}</Card.Title>
         <Card.Text>
