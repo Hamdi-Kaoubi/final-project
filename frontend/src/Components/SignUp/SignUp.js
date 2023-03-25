@@ -9,10 +9,16 @@ const SignUp = () => {
   const [lastname,setLastname]=useState('')
   const [email,setEmail]=useState('')
   const [password,setPassword]=useState('')
+  const [role,setRole]=useState('')
+  const [secret,setSecret]=useState('')
   const dispatch=useDispatch()
   const navigate=useNavigate()
   const handleRegister=()=>{
-    dispatch(register({firstname,lastname,email,password},navigate))
+    if (role=='admin' && secret!='hkb1994dz') {
+      alert('invalid admin')
+    }else{
+      dispatch(register({firstname,lastname,email,password,role},navigate))
+    }
   }
   return (
     <div className="parent">
@@ -22,7 +28,15 @@ const SignUp = () => {
         <div className="sign-parent">
         <div className="sign-in"><span className="active">Sign up</span></div>
         </div>
+        <div className='role-container'>
+          <input type='radio' name='role' value='user' onChange={(e)=>setRole(e.target.value)}/>User
+          <input type='radio' name='role' value='admin' onChange={(e)=>setRole(e.target.value)}/>Admin
+        </div>
         <div className="forms">
+            {role=='admin'?<div><p className="user-tag tag">Secret Key</p>
+            <input type="text" className="username" onChange={(e)=>setSecret(e.target.value)}/>
+            </div>
+            :null}
             <p className="user-tag tag">First name</p>
             <input type="text" className="username" onChange={(e)=>setFirstname(e.target.value)}/>
             <p className="user-tag tag">Last name</p>

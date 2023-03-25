@@ -2,7 +2,7 @@ const userModel=require('../Models/user')
 const bcrypt=require('bcrypt')
 const jwt=require('jsonwebtoken')
 exports.Register=async(req,res)=>{
-    const {email,password}=req.body
+    const {email,password,role}=req.body
     try {
         const found=await userModel.findOne({email})
         if (found){
