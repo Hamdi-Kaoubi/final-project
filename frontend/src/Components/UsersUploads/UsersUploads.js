@@ -13,7 +13,7 @@ const UsersUploads = () => {
     }, [dispatch])
     const uploads=useSelector((state)=>state.UploadReducer.uploads)
   return (
-    <div>
+    <div className='userUploads'>
         <div className='uploads'>
             <Typewriter
             onInit={(typewriter)=>{

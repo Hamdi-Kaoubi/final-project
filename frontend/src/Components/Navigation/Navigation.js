@@ -1,4 +1,5 @@
 import React from 'react'
+import {FaRegUserCircle} from 'react-icons/fa'
 import './Navigation.css'
 const Navigation = () => {
   return (
@@ -11,10 +12,10 @@ const Navigation = () => {
       <div id="mainListDiv" className="main_list">
         <ul className="navlinks">
           <li><a href="/home">Home</a></li>
-          <li><a href="#">Categories</a></li>
+          <li><a href="/home">Categories</a></li>
           <li><a href="/uploads">Users Uploads</a></li>
-          <li><a href="#">Favourites</a></li>
-          <li><a href="/profile"><i class="fa-duotone fa-user"></i></a></li>
+          <li><a href="/home">Favourites</a></li>
+          <li><a href="/profile"><FaRegUserCircle/></a></li>
           
         </ul>
       </div>

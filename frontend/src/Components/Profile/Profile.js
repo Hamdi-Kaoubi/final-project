@@ -16,7 +16,10 @@ const Profile = () => {
     <div className='profile-container'>
     <AlertError/>
       <h1>Get a tip, make a trick...</h1>
-      {user.firstname}
+      <div className='username'>
+        {user.firstname}
+        {user.lastname}
+      </div>
       <button onClick={()=>dispatch(logout(),navigate('/'))}>Logout</button>
       </div>
   )

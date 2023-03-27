@@ -1,22 +1,28 @@
-import React, {useEffect, useState} from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { get_oneLanguage } from '../../../redux/action/Action';
+import { get_current } from '../../../redux/action/AuthAction';
+import {FaRegThumbsUp} from 'react-icons/fa'
+import {FaRegThumbsDown} from 'react-icons/fa'
+import {FaRegHeart} from 'react-icons/fa'
 import './Test.css'
-const Test = ({user,get_current}) => {
+const Test = () => {
   const [admin,setAdmin]=useState(false)
   const {id}=useParams()
   const dispatch=useDispatch()
     useEffect(() => {
       dispatch(get_oneLanguage(id))
-    }, [id,dispatch])
+    },[id,dispatch])
     const programming=useSelector((state)=>state.OneLanguageReducer.programming)
     console.log(id)
-    const handleCurrent=()=>{
+    useEffect(() => {
       dispatch(get_current())
-      if (user.role=='admin'){
+    }, [dispatch])
+    const user=useSelector((state)=>state.UserReducer.user)
+    console.log(user)
+    if(user.role==='admin'){
         setAdmin(true)
-      }
     }
   return (
     <div className='card-container'>
@@ -28,10 +34,14 @@ const Test = ({user,get_current}) => {
           <h2 className='card-text2'>{el.creator}</h2>
         </header>
         <div className="card-bio">
-          <p style={{color:'black'}}>{el.date}</p>
-         <a  href={el.vidUrl}  target="_blank" rel='noreferrer'><button>Watch Trick</button></a>
-          <button className="card-btn">Add to favourites</button>
-          {admin?<button>delete</button>:null}
+          <p className='card-text1'>{el.date}</p>
+        <div className='card-btns'>
+          <a  href={el.vidUrl}  target="_blank" rel='noreferrer'><button className="card-btn1">Watch Trick</button></a>
+          <FaRegThumbsUp size='2.3rem' color='white'/>
+          <FaRegThumbsDown size='2.3rem'/>
+          <FaRegHeart size='2.3rem'/>
+        </div>
+        {admin?<button>delete</button>:null}
         </div>
       </div>
       )}

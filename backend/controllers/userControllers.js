@@ -12,7 +12,7 @@ exports.Register=async(req,res)=>{
         const salt=10
         const hashpassword=bcrypt.hashSync(password,salt)
         user.password=hashpassword
-        const payload={id:user._id}
+        const payload={id:user._id,role:user.role}
         const token=jwt.sign(payload,process.env.secretKey)
         await user.save()
         return res.status(200).send({msg:"user added",user,token})
@@ -33,7 +33,7 @@ exports.Login=async(req,res)=>{
             if (!match) {
                 res.status(400).send({errors:[{msg:'wrong password'}]})
             }else {
-                const payload={id:user._id}
+                const payload={id:user._id,role:user.role}
                 const token=jwt.sign(payload,process.env.secretKey)
                 return res.status(200).send({msg:'you are logged in',user,token})
             }

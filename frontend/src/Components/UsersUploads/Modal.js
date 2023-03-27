@@ -12,14 +12,14 @@ const Modal = ({closeModal}) => {
     const[img,setImg]=useState('')
     const [vid,setVid]=useState('')
     const addImage=async()=>{
-        const formData=new FormData
+        const formData=new FormData()
         formData.append('file',image)
         formData.append('upload_preset','hamdi_kb')
         await axios.post('http://api.cloudinary.com/v1_1/djcqzobzn/upload',formData)
         .then((res)=>setImg(res.data.url))
     }
     const addVideo=async()=>{
-        const formData=new FormData
+        const formData=new FormData()
         formData.append('file',video)
         formData.append('upload_preset','hamdi_kb')
         await axios.post('http://api.cloudinary.com/v1_1/djcqzobzn/upload',formData)

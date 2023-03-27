@@ -10,6 +10,8 @@
     border-radius: 10px;
     box-shadow: 0 10px 20px rgb(40, 40, 40);
     font-family: Montserrat, sans-serif;
+    display: flex;
+    flex-direction: column;
 }
 .profile-container button {
     width: 150px;

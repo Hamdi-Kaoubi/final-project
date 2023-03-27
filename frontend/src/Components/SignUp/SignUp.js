@@ -28,7 +28,7 @@ const SignUp = () => {
         <div className="sign-parent">
         <div className="sign-in"><span className="active">Sign up</span></div>
         </div>
-        <div className='role-container'>
+        <div className='role-containes'>
           <input type='radio' name='role' value='user' onChange={(e)=>setRole(e.target.value)}/>User
           <input type='radio' name='role' value='admin' onChange={(e)=>setRole(e.target.value)}/>Admin
         </div>
