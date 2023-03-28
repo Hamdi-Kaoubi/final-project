@@ -8,6 +8,14 @@ export const get_languages=()=>async(dispatch)=>{
         console.log(error)
     }
 }
+export const delete_language=(id)=>async(dispatch)=>{
+    try {
+        const res=await axios.delete('/deletelanguage'+id)
+    } catch (error) {
+        
+    }
+}
+
 export const get_oneLanguage=(id)=>async(dispatch)=>{
     try {
         const res=await axios.get('/getonelanguage/'+id)

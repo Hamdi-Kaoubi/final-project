@@ -1,29 +1,28 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { get_oneLanguage } from '../../../redux/action/Action';
 import { get_current } from '../../../redux/action/AuthAction';
-import {FaRegThumbsUp} from 'react-icons/fa'
-import {FaRegThumbsDown} from 'react-icons/fa'
-import {FaRegHeart} from 'react-icons/fa'
+import {FiThumbsUp} from 'react-icons/fi'
+import {FiThumbsDown} from 'react-icons/fi'
+import {FcLike} from 'react-icons/fc'
+import {FcStart} from 'react-icons/fc'
+import {FcEmptyTrash} from 'react-icons/fc'
+import {FcEditImage} from 'react-icons/fc'
 import './Test.css'
+
 const Test = () => {
-  const [admin,setAdmin]=useState(false)
   const {id}=useParams()
   const dispatch=useDispatch()
     useEffect(() => {
+      dispatch(get_current())
       dispatch(get_oneLanguage(id))
-    },[id,dispatch])
+    }, [id,dispatch])
     const programming=useSelector((state)=>state.OneLanguageReducer.programming)
     console.log(id)
-    useEffect(() => {
-      dispatch(get_current())
-    }, [dispatch])
-    const user=useSelector((state)=>state.UserReducer.user)
+    const user=useSelector((state)=>state.UserReducer.user.user)
     console.log(user)
-    if(user.role==='admin'){
-        setAdmin(true)
-    }
+
   return (
     <div className='card-container'>
       {programming?.content?.map((el)=>
@@ -35,13 +34,20 @@ const Test = () => {
         </header>
         <div className="card-bio">
           <p className='card-text1'>{el.date}</p>
-        <div className='card-btns'>
-          <a  href={el.vidUrl}  target="_blank" rel='noreferrer'><button className="card-btn1">Watch Trick</button></a>
-          <FaRegThumbsUp size='2.3rem' color='white'/>
-          <FaRegThumbsDown size='2.3rem'/>
-          <FaRegHeart size='2.3rem'/>
+          {user.role==='user'?
+          <div className='card-btns'>
+          <a  href={el.vidUrl}  target="_blank" rel='noreferrer'><FcStart size='2.3rem'/></a>
+          <FiThumbsUp size='2.3rem' color='white'/>
+          <FiThumbsDown size='2.3rem'/>
+          <FcLike size='2.3rem'/>
         </div>
-        {admin?<button>delete</button>:null}
+        :null}
+        {user.role==="admin"?
+        <div style={{display:'flex', justifyContent:'center',gap:'30px'}}>
+        <FcEmptyTrash size='2.4rem' cursor='pointer'/>
+        <FcEditImage size='2.4rem' cursor='pointer'/>
+        </div>
+        :null}
         </div>
       </div>
       )}
