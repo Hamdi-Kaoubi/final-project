@@ -3,9 +3,10 @@ import Card from 'react-bootstrap/Card';
 import Typewriter from 'typewriter-effect'
 import Modal from './Modal'
 import {useDispatch, useSelector} from 'react-redux'
-import { get_uploads } from '../../redux/action/Action'
+import { delete_upload, get_uploads } from '../../redux/action/Action'
 import { get_current } from '../../redux/action/AuthAction';
 import {FcEmptyTrash} from 'react-icons/fc'
+import {Link} from 'react-router-dom'
 import './UsersUploads.css'
 
 const UsersUploads = () => {
@@ -27,7 +28,10 @@ const UsersUploads = () => {
                 .start()
             }}
             />
-            <button onClick={()=>setOpenModal(true)}>Upload</button>
+            <div style={{display:'flex',gap:'10px'}}>
+              <button onClick={()=>setOpenModal(true)}>Upload</button>
+              <Link to='/myuploads'><button>my uploads</button></Link>
+            </div>
         </div>
         {openModal && <Modal closeModal={setOpenModal}/>}
         <div className='uploads-container'>
@@ -40,7 +44,7 @@ const UsersUploads = () => {
           {el.domain}
         </Card.Text>
         {user.role==="admin"?
-        <FcEmptyTrash size='2.4rem' cursor='pointer'/>
+        <FcEmptyTrash size='2.4rem' cursor='pointer' onClick={()=>dispatch(delete_upload(el._id))}/>
         :null}
       </Card.Body>
     </Card>

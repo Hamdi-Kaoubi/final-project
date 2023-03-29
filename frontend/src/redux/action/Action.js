@@ -1,4 +1,14 @@
-import { GET_FASHION, GET_GRAPHIC, GET_HAND, GET_LANGUAGES, GET_ONELANGUAGE, GET_SPORT, GET_UPLOADS, GET_VIDEO } from '../actionTypes/ActionTypes'
+import { 
+    GET_FASHION,
+    GET_GRAPHIC, 
+    GET_HAND, 
+    GET_LANGUAGES, 
+    GET_ONELANGUAGE, 
+    GET_SPORT, 
+    GET_UPLOADS, 
+    GET_VIDEO, 
+    MY_UPLOADS 
+} from '../actionTypes/ActionTypes'
 import axios from 'axios'
 export const get_languages=()=>async(dispatch)=>{
     try {
@@ -75,9 +85,39 @@ export const get_uploads=()=>async(dispatch)=>{
 }
 export const post_uploads=(data)=>async(dispatch)=>{
     try {
-        await axios.post('/addaupload',data)
+        const user=await axios.get('/current')
+        const userId=user.data._id
+        await axios.post('/addaupload',{...data,userId})
         dispatch(get_uploads())
     } catch (error) {
         
+    }
+}
+export const delete_upload=(id)=>async(dispatch)=>{
+    try {
+        await axios.delete(`/deleteupload/${id}`)
+        dispatch(get_uploads())
+    } catch (error) {
+        console.log(error)
+    }
+}
+export const edit_upload=(id,data)=>async(dispatch)=>{
+    try {
+        
+    } catch (error) {
+        
+    }
+}
+export const my_uploads=()=>async(dispatch)=>{
+    const config = {
+        headers: {
+          token: localStorage.getItem("token"),
+        },
+      }
+    try {
+        const res=await axios.get('/myuploads',config)
+        dispatch({type:MY_UPLOADS,payload:res.data.myuploads})
+    } catch (error) {
+        console.log(error)
     }
 }

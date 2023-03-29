@@ -9,6 +9,7 @@ import AlertError from './Components/Profile/AlertError';
 import PrivateRoute from './Components/Profile/PrivateRoute';
 import Profile from './Components/Profile/Profile';
 import SignUp from './Components/SignUp/SignUp';
+import MyUploads from './Components/UsersUploads/MyUploads';
 import UsersUploads from './Components/UsersUploads/UsersUploads';
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
       <Routes>
         <Route path='/home' element={<PrivateRoute><Home/></PrivateRoute>}/>
         <Route path='/uploads' element={<UsersUploads/>}/>
+        <Route path='/myuploads' element={<MyUploads/>}/>
         <Route path='/profile' element={<PrivateRoute><Profile/></PrivateRoute>}/>
         <Route path='/' element={<Login/>}/>
         <Route path='/signup' element={<SignUp/>}/>

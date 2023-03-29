@@ -1,4 +1,4 @@
-import { GET_UPLOADS, POST_UPLOADS } from "../actionTypes/ActionTypes"
+import { DELETE_UPLOAD, GET_UPLOADS, MY_UPLOADS, POST_UPLOADS } from "../actionTypes/ActionTypes"
 
 const initialState = {
     uploads:[]
@@ -11,6 +11,10 @@ case GET_UPLOADS:
     return { ...state,uploads:payload.upload }
 case POST_UPLOADS:
     return {...state,uploads:payload.upload}
+case DELETE_UPLOAD:
+    return {...state,uploads:state.uploads.filter((el)=>el._id!==payload)}
+case MY_UPLOADS:
+    return {...state,uploads:payload}
 default:
     return state
 }
