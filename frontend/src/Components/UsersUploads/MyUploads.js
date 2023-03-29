@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import Card from 'react-bootstrap/Card';
 import { useDispatch, useSelector } from 'react-redux'
-import { my_uploads, post_uploads } from '../../redux/action/Action'
+import { my_uploads } from '../../redux/action/Action'
 import { get_current } from '../../redux/action/AuthAction'
 import {FcEditImage} from 'react-icons/fc'
 const MyUploads = () => {

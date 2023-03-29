@@ -51,3 +51,12 @@ exports.getUsers=async(req,res)=>{
         res.status(500).send(error)
     }
 }
+
+exports.deleteUsers=async(req,res)=>{
+    try {
+        await userModel.findByIdAndDelete(req.params.id)
+        res.status(200).send({msg:'your user is deleted'})
+    } catch (error) {
+        res.status(500).send(error)
+    }
+}

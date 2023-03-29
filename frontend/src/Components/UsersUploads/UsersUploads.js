@@ -16,8 +16,9 @@ const UsersUploads = () => {
       dispatch(get_uploads())
       dispatch(get_current())
     }, [dispatch])
-    const uploads=useSelector((state)=>state.UploadReducer.uploads)
     const user=useSelector((state)=>state.UserReducer.user.user)
+    const uploads=useSelector((state)=>state.UploadReducer.uploads)
+    
   return (
     <div className='userUploads'>
         <div className='uploads'>

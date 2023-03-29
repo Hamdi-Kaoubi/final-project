@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { GET_CURRENT, LOGIN, LOGOUT, REGISTER } from '../actionTypes/AuthTypes'
+import { GET_CURRENT, GET_USERS, LOGIN, LOGOUT, REGISTER } from '../actionTypes/AuthTypes'
 import { alert_error } from './ErrorAction'
 
 export const register=(data,navigate)=>async(dispatch)=>{
@@ -40,4 +40,21 @@ export const get_current=()=>async(dispatch)=>{
 
 export const logout=()=>{
     return ({type:LOGOUT})
+}
+
+export const get_users=()=>async(dispatch)=>{
+    try {
+        const res=await axios.get('/getusers')
+        dispatch({type:GET_USERS,payload:res.data})
+    } catch (error) {
+        console.log(error)
+    }
+}
+export const delete_user=(id)=>async(dispatch)=>{
+    try {
+        await axios.delete(`/deleteuser/${id}`)
+        dispatch(get_users())
+    } catch (error) {
+        console.log(error)
+    }
 }
