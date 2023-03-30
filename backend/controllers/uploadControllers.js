@@ -2,7 +2,7 @@ const uploadModel = require("../Models/uploads")
 
 exports.getUpload=async(req,res)=>{
     try {
-        const upload=await uploadModel.find().populate('userId')
+        const upload=await uploadModel.find()
         return res.status(200).send({msg:'your uploads are here',upload})
     } catch (error) {
         return res.status(500).send(error)
@@ -11,7 +11,7 @@ exports.getUpload=async(req,res)=>{
 
 exports.addUpload=async(req,res)=>{
     try {
-        const upload= new uploadModel({...req.body,userId:req.user.id})
+        const upload= new uploadModel(req.body)
         await upload.save()
         res.status(200).send({msg:'your new upload is added',upload})
     } catch (error) {
@@ -34,14 +34,5 @@ exports.deleteUpload=async(req,res)=>{
         res.status(200).send({msg:'your upload is deleted'})
     } catch (error) {
         res.status(500).send(error)
-    }
-}
-
-exports.myuploads=async(req,res)=>{
-    try {
-        const uploads=await uploadModel.find({userId:req.user.id})
-        return  res.status(200).send({msg:"these are your uploads ",uploads})
-    } catch (error) {
-        return res.status(500).send(error)
     }
 }

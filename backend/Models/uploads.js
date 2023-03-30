@@ -3,8 +3,7 @@ const uploadSchema= new mongoose.Schema({
     title:{type:String,required:true},
     domain:{type:String,required:true},
     thumbNailImage:{type:String,required:true},
-    video:{type:String,required:true},
-    userId:{type:mongoose.Schema.Types.ObjectId,ref:'user'}
+    video:{type:String,required:true}
 })
 
 const uploadModel= mongoose.model('upload',uploadSchema)

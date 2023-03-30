@@ -9,6 +9,7 @@ import {FcLike} from 'react-icons/fc'
 import {FcStart} from 'react-icons/fc'
 import {FcEmptyTrash} from 'react-icons/fc'
 import {FcEditImage} from 'react-icons/fc'
+import { useAppContext } from '../../appContext/appContext';
 import './Test.css'
 
 const Test = () => {
@@ -20,9 +21,10 @@ const Test = () => {
     }, [id,dispatch])
     const programming=useSelector((state)=>state.OneLanguageReducer.programming)
     console.log(id)
-    const user=useSelector((state)=>state.UserReducer.user.user)
+    const user=useSelector((state)=>state.UserReducer.user)
     console.log(user)
-
+    const {favorites,addToFavorites}=useAppContext()
+    console.log('favorites: ',favorites)
   return (
     <div className='card-container'>
       {programming?.content?.map((el)=>
@@ -39,7 +41,7 @@ const Test = () => {
           <a  href={el.vidUrl}  target="_blank" rel='noreferrer'><FcStart size='2.3rem'/></a>
           <FiThumbsUp size='2.3rem' color='white'/>
           <FiThumbsDown size='2.3rem'/>
-          <FcLike size='2.3rem'/>
+          <FcLike size='2.3rem' onClick={()=>addToFavorites(el)}/>
         </div>
         :null}
         {user.role==="admin"?

@@ -14,7 +14,7 @@ const Navigation = () => {
           <li><a href="/home">Home</a></li>
           <li><a href="/home">Categories</a></li>
           <li><a href="/uploads">Users Uploads</a></li>
-          <li><a href="/home">Favourites</a></li>
+          <li><a href="/favorites">Favorites</a></li>
           <li><a href="/profile"><FaRegUserCircle/></a></li>
           
         </ul>

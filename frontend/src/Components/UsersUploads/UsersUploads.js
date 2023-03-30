@@ -6,7 +6,6 @@ import {useDispatch, useSelector} from 'react-redux'
 import { delete_upload, get_uploads } from '../../redux/action/Action'
 import { get_current } from '../../redux/action/AuthAction';
 import {FcEmptyTrash} from 'react-icons/fc'
-import {Link} from 'react-router-dom'
 import './UsersUploads.css'
 
 const UsersUploads = () => {
@@ -16,7 +15,7 @@ const UsersUploads = () => {
       dispatch(get_uploads())
       dispatch(get_current())
     }, [dispatch])
-    const user=useSelector((state)=>state.UserReducer.user.user)
+    const user=useSelector((state)=>state.UserReducer.user)
     const uploads=useSelector((state)=>state.UploadReducer.uploads)
     
   return (
@@ -29,10 +28,7 @@ const UsersUploads = () => {
                 .start()
             }}
             />
-            <div style={{display:'flex',gap:'10px'}}>
               <button onClick={()=>setOpenModal(true)}>Upload</button>
-              <Link to='/myuploads'><button>my uploads</button></Link>
-            </div>
         </div>
         {openModal && <Modal closeModal={setOpenModal}/>}
         <div className='uploads-container'>

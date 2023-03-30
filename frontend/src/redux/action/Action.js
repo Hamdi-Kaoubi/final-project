@@ -6,8 +6,7 @@ import {
     GET_ONELANGUAGE, 
     GET_SPORT, 
     GET_UPLOADS, 
-    GET_VIDEO, 
-    MY_UPLOADS 
+    GET_VIDEO
 } from '../actionTypes/ActionTypes'
 import axios from 'axios'
 export const get_languages=()=>async(dispatch)=>{
@@ -20,7 +19,7 @@ export const get_languages=()=>async(dispatch)=>{
 }
 export const delete_language=(id)=>async(dispatch)=>{
     try {
-        const res=await axios.delete('/deletelanguage'+id)
+        await axios.delete('/deletelanguage'+id)
     } catch (error) {
         
     }
@@ -85,9 +84,8 @@ export const get_uploads=()=>async(dispatch)=>{
 }
 export const post_uploads=(data)=>async(dispatch)=>{
     try {
-        const user=await axios.get('/current')
-        const userId=user.data._id
-        await axios.post('/addaupload',{...data,userId})
+        
+        await axios.post('/addaupload',data)
         dispatch(get_uploads())
     } catch (error) {
         
@@ -106,18 +104,5 @@ export const edit_upload=(id,data)=>async(dispatch)=>{
         
     } catch (error) {
         
-    }
-}
-export const my_uploads=()=>async(dispatch)=>{
-    const config = {
-        headers: {
-          token: localStorage.getItem("token"),
-        },
-      }
-    try {
-        const res=await axios.get('/myuploads',config)
-        dispatch({type:MY_UPLOADS,payload:res.data.myuploads})
-    } catch (error) {
-        console.log(error)
     }
 }

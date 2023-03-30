@@ -21,6 +21,7 @@ const Profile = () => {
       {user.role==="user"?
       <div className='username'>
         {user.firstname}
+        <span>    </span>
         {user.lastname}
       </div>
     :null}

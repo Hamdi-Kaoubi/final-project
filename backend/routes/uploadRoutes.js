@@ -1,10 +1,8 @@
 const express=require('express')
-const {isAuth}=require('../middleWares/isAuth')
-const { getUpload, addUpload, editUpload, deleteUpload, myuploads } = require('../controllers/uploadControllers')
+const { getUpload, addUpload, editUpload, deleteUpload } = require('../controllers/uploadControllers')
 const routerUp=express.Router()
 routerUp.get('/getupload',getUpload)
-routerUp.post('/addupload',isAuth,addUpload)
+routerUp.post('/addupload',addUpload)
 routerUp.put('/editupload/:id',editUpload)
 routerUp.delete('/deleteupload/:id',deleteUpload)
-routerUp.get('/myuploads',isAuth,myuploads)
 module.exports=routerUp

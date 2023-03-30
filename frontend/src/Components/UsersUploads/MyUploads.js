@@ -10,11 +10,11 @@ const MyUploads = () => {
         dispatch(my_uploads())
         dispatch(get_current())
     }, [dispatch])
-    const myuploads=useSelector((state)=>state.UploadReducer.uploads)
-    const user=useSelector((state)=>state.UserReducer.user.user)
+    const myuploads=useSelector((state)=>state.myuploads)
+    const user=useSelector((state)=>state.UserReducer.user)
   return (
     <div>
-    {myuploads?.map((el)=>
+    {myuploads.map((el)=>
         <Card style={{ width: '18rem', boxShadow:'0 10px 20px rgb(40, 40, 40)',cursor:'pointer'}}>
         <a  href={el.video}  target="_blank" rel='noreferrer'><Card.Img variant="top" src={el.thumbNailImage} /></a>
     <Card.Body>
