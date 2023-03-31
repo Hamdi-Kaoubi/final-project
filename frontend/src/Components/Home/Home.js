@@ -8,15 +8,18 @@ import Sport from './Sport/Sport'
 import Fashion from './Fashion/Fashion'
 const Home = () => {
   return (
-    <div>
-    <h1>
+    <div className='HomePage'>
       <Languages/>
+      <br/>
       <HandMades/>
+      <br/>
       <Graphic/>
+      <br/>
       <VideoEdit/>
+      <br/>
       <Sport/>
+      <br/>
       <Fashion/>
-    </h1>
     </div>
   )
 }

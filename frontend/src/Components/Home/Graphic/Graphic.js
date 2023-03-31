@@ -17,7 +17,7 @@ const Graphic = () => {
   return (
     <div className='swiper-container'>
     <div className='title'>
-      <h3>Graphic Designs</h3>
+      <h2>Graphic Designs</h2>
     </div>
     <Swiper
       effect={'coverflow'}

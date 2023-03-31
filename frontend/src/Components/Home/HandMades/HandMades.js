@@ -17,7 +17,7 @@ const HandMades = () => {
   return (
     <div className='swiper-container'>
     <div className='title'>
-      <h3>Hand Mades</h3>
+      <h2>Hand Mades</h2>
     </div>
     <Swiper
       effect={'coverflow'}

@@ -17,7 +17,7 @@ const Fashion = () => {
   return (
     <div className='swiper-container'>
     <div className='title'>
-      <h3>Fashion</h3>
+      <h2>Fashion</h2>
     </div>
     <Swiper
       effect={'coverflow'}

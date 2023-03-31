@@ -17,7 +17,7 @@ const Sport = () => {
   return (
     <div className='swiper-container'>
     <div className='title'>
-      <h3>Sports</h3>
+      <h2>Sports</h2>
     </div>
     <Swiper
       effect={'coverflow'}

@@ -19,6 +19,7 @@
     padding: 25px;
     z-index: 1;
     margin-top: -100px;
+    color: #fff;
 }
 .modalContainer .modalTitle {
     display: inline-block;
@@ -36,7 +37,7 @@
     background-color: transparent;
     border: none;
     font-size: 25px;
-    color: black;
+    color: #fff;
     cursor: pointer;
 }
 .modalContainer .modalBody {
@@ -50,7 +51,7 @@
     text-align: center;
 }
 .modalBody input {
-    opacity: 50%;
+    opacity: 70%;
 }
 .modalContainer .modalFooter {
     flex: 20%;
@@ -63,9 +64,17 @@
     height: 45px;
     margin: 10px;
     border: none;
-    background: linear-gradient(45deg, #d7ea46, #f1ea10, #f17f0c, #ec4a0a);
+    background: linear-gradient(45deg, #f17f0c, #ec4a0a);
     color: white;
     border-radius: 8px;
     font-size: 20px;
     cursor: pointer;
+}
+.add {
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+    z-index: 1;
+    margin-left: 350px;
+    background: #d7ea46;
 }

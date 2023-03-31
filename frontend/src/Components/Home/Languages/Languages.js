@@ -18,7 +18,7 @@ const Languages = () => {
   return (
     <div className='swiper-container'>
       <div className='title'>
-        <h3>Programming Languages</h3>
+        <h2>Programming Languages</h2>
       </div>
       <Swiper
         effect={'coverflow'}

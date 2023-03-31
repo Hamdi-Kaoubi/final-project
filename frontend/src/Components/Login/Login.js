@@ -12,11 +12,10 @@ const Login = () => {
         dispatch(login({email,password},navigate))
     }
   return (
-    <div className='login-body'>
     <div className="parent">
     <div className="login-modal">
       <div className="title">Tips and Tricks</div>
-      <div className="containers">
+      <div className="login-cntnr">
         <div className="sign-parent">
           <div className="sign-in"><span className="active">Login</span></div>
           <div className="sign-up"><a href='/signup'><span className="not-active">Sign Up</span></a></div>
@@ -36,7 +35,6 @@ const Login = () => {
         </div>
       </div>
     </div>
-  </div>
   </div>
   )
 }

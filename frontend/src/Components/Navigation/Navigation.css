@@ -3,9 +3,11 @@
     height: 65px;
     line-height: 65px;
     text-align: center;
-    box-shadow: 0 10px 20px rgb(40, 40, 40)
+    box-shadow: 0 10px 20px rgb(40, 40, 40);
+    border-radius: 0;
+    background-color: #6096B4;
 }
-.container {
+.nav-cont {
     width: 100%;
 }
 
@@ -18,7 +20,7 @@
 
 .nav div.logo a {
     text-decoration: none;
-    color: #bbb5b5;
+    color: #1a1919;
     font-size: 2.2rem;
     margin-left: 0;
 }
@@ -38,8 +40,7 @@
     display: flex;
     list-style: none;
     margin: 0;
-   padding: 0;
-    
+    padding: 0;
 }
 
 .nav div.main_list ul li {
@@ -52,7 +53,7 @@
 
 .nav div.main_list ul li a {
     text-decoration: none;
-    color: #bbb5b5;
+    color: #1a1919;
     line-height: 65px;
     font-size: 2rem;
 }

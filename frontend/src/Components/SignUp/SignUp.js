@@ -21,10 +21,10 @@ const SignUp = () => {
     }
   }
   return (
-    <div className="parent">
-    <div className="login-modal">
-      <div className="title">Tips and Tricks</div>
-      <div className="contain">
+    <div className="signUp-parent">
+    <div className="signUp-modal">
+      <div className="signUp-title">Tips and Tricks</div>
+      <div className="signUp-cntnr">
         <div className="sign-parent">
         <div className="sign-in"><span className="active">Sign up</span></div>
         </div>
@@ -46,7 +46,7 @@ const SignUp = () => {
             <p className="pass-tag tag">Password</p>
             <input type="password" className="password" onChange={(e)=>setPassword(e.target.value)}/>
         </div>
-        <button className="login-btn" onClick={handleRegister}>
+        <button className="signUp-btn" onClick={handleRegister}>
             Sign up
         </button>
     </div>

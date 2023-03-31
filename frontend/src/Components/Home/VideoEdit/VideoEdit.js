@@ -17,7 +17,7 @@ const VideoEdit = () => {
   return (
     <div className='swiper-container'>
     <div className='title'>
-      <h3>Video Editing</h3>
+      <h2>Video Editing</h2>
     </div>
     <Swiper
       effect={'coverflow'}

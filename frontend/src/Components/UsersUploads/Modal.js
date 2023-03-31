@@ -48,9 +48,9 @@ const Modal = ({closeModal}) => {
                 <input type='text' placeholder='put your title here' onChange={(e)=>setTitle(e.target.value)}/>
                 <input type='text' placeholder='the domain of your video' onChange={(e)=>setDomain(e.target.value)}/>
                 <input type='file' onChange={(e)=>setImage(e.target.files[0])}/>
-                <button onClick={addImage}>add image</button>
+                <button className='add' onClick={addImage}>add image</button>
                 <input type='file' onChange={(e)=>setVideo(e.target.files[0])}/>
-                <button onClick={addVideo}>add video</button>
+                <button className='add' onClick={addVideo}>add video</button>
             </div>
             <div className='modalFooter'>
                 <button onClick={handlePost}>Upload</button>

@@ -1,6 +1,12 @@
 body{
     height: 100%;
 }
+.HomePage{
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    padding: 20px;
+}
 .slider-container img{
     height: 370px;
     width: 320px;
