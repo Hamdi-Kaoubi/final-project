@@ -6,10 +6,13 @@ import {useDispatch, useSelector} from 'react-redux'
 import { delete_upload, get_uploads } from '../../redux/action/Action'
 import { get_current } from '../../redux/action/AuthAction';
 import {FcEmptyTrash} from 'react-icons/fc'
+import {FcEditImage} from 'react-icons/fc'
 import './UsersUploads.css'
+import EditModal from './EditModal';
 
 const UsersUploads = () => {
     const [openModal,setOpenModal]=useState(false)
+    const [openEdit,setOpenEdit]=useState(false)
     const dispatch=useDispatch()
     useEffect(() => {
       dispatch(get_uploads())
@@ -20,15 +23,19 @@ const UsersUploads = () => {
     
   return (
     <div className='userUploads'>
-        <div className='uploads'>
+        <div>
+          {user.role==="user"?
+          <div className='uploads'>
             <Typewriter
-            onInit={(typewriter)=>{
-                typewriter
-                .typeString('you can submit your tips videos here..come on and give it a shot')
-                .start()
-            }}
+              onInit={(typewriter)=>{
+              typewriter
+              .typeString('you can submit your tips videos here..come on and give it a shot')
+              .start()
+              }}
             />
-              <button onClick={()=>setOpenModal(true)}>Upload</button>
+            <button onClick={()=>setOpenModal(true)}>Upload</button>
+          </div>
+          :null}
         </div>
         {openModal && <Modal closeModal={setOpenModal}/>}
         <div className='uploads-container'>
@@ -40,6 +47,12 @@ const UsersUploads = () => {
         <Card.Text>
           {el.domain}
         </Card.Text>
+        {user.role==="user"?
+        <div>
+        <FcEditImage size='2.4rem' cursor='pointer' onClick={()=>setOpenEdit(true)}/>
+        {openEdit && <EditModal closeEdit={setOpenEdit} id={el._id}/>}
+        </div>
+        :null}
         {user.role==="admin"?
         <FcEmptyTrash size='2.4rem' cursor='pointer' onClick={()=>dispatch(delete_upload(el._id))}/>
         :null}

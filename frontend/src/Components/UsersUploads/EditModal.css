@@ -1,0 +1,82 @@
+.editBackground {
+    width: 90%;
+    background: transparent;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .editContainer {
+    width: 500px;
+    height: 500px;
+    border: 1px solid white;
+    border-radius: 12px;
+    background: linear-gradient(45deg, #d7ea46, #f1ea10, #f17f0c, #ec4a0a);
+    box-shadow:  0 10px 20px rgb(40, 40, 40);
+    display: flex;
+    flex-direction: column;
+    padding: 25px;
+    z-index: 1;
+    margin-top: -450px;
+    margin-left: 800px;
+    
+    color: #fff;
+}
+.modalContainer .modalTitle {
+    display: inline-block;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.closeBtn {
+    display: flex;
+    justify-content: flex-end;
+    
+}
+
+.closeBtn button {
+    background-color: transparent;
+    border: none;
+    font-size: 25px;
+    color: #fff;
+    cursor: pointer;
+}
+.editContainer .modalBody {
+    flex: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+    text-align: center;
+}
+.modalBody input {
+    opacity: 70%;
+}
+.editContainer .modalFooter {
+    flex: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.editContainer .modalFooter button {
+    width: 150px;
+    height: 45px;
+    margin: 10px;
+    border: none;
+    background: linear-gradient(45deg, #f17f0c, #ec4a0a);
+    color: white;
+    border-radius: 8px;
+    font-size: 20px;
+    cursor: pointer;
+}
+.add {
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+    z-index: 1;
+    margin-left: 350px;
+    background: #d7ea46;
+}
